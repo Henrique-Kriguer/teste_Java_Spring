@@ -8,21 +8,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.HenriqueKriguer.backEndTest.entities.Pessoa;
-import com.HenriqueKriguer.backEndTest.repositories.UserRepository;
+import com.HenriqueKriguer.backEndTest.repositories.PessoaRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 	@Autowired
-	private UserRepository userRepository;
+	private PessoaRepository userRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Pessoa p1 = new Pessoa(null, "Henrique Kriguer", "23/10/1971");
-		Pessoa p2 = new Pessoa(null, "Simone Kriguer", "11/11/1971");
+		Pessoa p3 = new Pessoa(null, "João José Soares", "25/12/1965");
+		Pessoa p4 = new Pessoa(null, "Ferdinand Dualib", "01/08/1974");
 		
-		userRepository.saveAll(Arrays.asList(p1,p2));
+		userRepository.saveAll(Arrays.asList(p3,p4));
 	}
 
 }

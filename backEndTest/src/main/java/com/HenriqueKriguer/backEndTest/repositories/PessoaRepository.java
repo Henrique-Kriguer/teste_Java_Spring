@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.HenriqueKriguer.backEndTest.entities.Pessoa;
 
-public interface UserRepository extends JpaRepository<Pessoa, Long>{
+public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
 
 }
