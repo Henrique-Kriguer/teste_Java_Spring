@@ -3,6 +3,7 @@ package com.HenriqueKriguer.backEndTest.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.HenriqueKriguer.backEndTest.entities.enums.EnderecoStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -28,6 +29,8 @@ public class Endereco implements Serializable{
 	private String cidade;
 	private String estado;
 	
+	private Integer enderecoStatus;
+	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "pessoa_id")
@@ -37,10 +40,11 @@ public class Endereco implements Serializable{
 		
 	}
 
-	public Endereco(Long id, String logradouro, String cep, String numero, String cidade, String estado,
+	public Endereco(Long id,EnderecoStatus enderecoStatus, String logradouro, String cep, String numero, String cidade, String estado,
 			Pessoa pessoa) {
 		super();
 		this.id = id;
+		setEnderecoStatus(enderecoStatus);
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.numero = numero;
@@ -55,6 +59,17 @@ public class Endereco implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	
+	public EnderecoStatus getEnderecoStatus() {
+		return EnderecoStatus.valueOf(enderecoStatus);
+	}
+
+	public void setEnderecoStatus(EnderecoStatus enderecoStatus) {
+		if(enderecoStatus != null) {
+		this.enderecoStatus = enderecoStatus.getCode();
+		}
 	}
 
 	public String getLogradouro() {
