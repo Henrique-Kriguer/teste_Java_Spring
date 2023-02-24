@@ -1,16 +1,19 @@
 package com.HenriqueKriguer.backEndTest.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_pessoa")
 public class Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -19,6 +22,9 @@ public class Pessoa implements Serializable{
 	private Long id;
 	private String name;
 	private String birthDate;
+	
+	@OneToMany(mappedBy = "pessoa")
+	private List<Endereco> endereco = new ArrayList<>();
 	
 	public Pessoa() {
 		
@@ -55,6 +61,9 @@ public class Pessoa implements Serializable{
 		this.birthDate = birthDate;
 	}
 
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -71,6 +80,8 @@ public class Pessoa implements Serializable{
 		Pessoa other = (Pessoa) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
 	
 	
 	
