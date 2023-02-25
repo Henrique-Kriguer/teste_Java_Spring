@@ -45,9 +45,15 @@ public class PessoaService {
 	}
 	
 	public Pessoa update(Long id, Pessoa obj) {
-		Pessoa entity = repository.getReferenceById(id);
-		updateData(entity, obj);
-		return repository.save(entity);
+		try {
+			Pessoa entity = repository.getReferenceById(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+		}catch( RuntimeException e) {
+			e.printStackTrace();
+			throw new ResourceNotFoundException(id);
+		}
+		
 	}
 	
 	private void updateData(Pessoa entity, Pessoa obj) {
