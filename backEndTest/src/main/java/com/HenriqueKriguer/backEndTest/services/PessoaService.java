@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.HenriqueKriguer.backEndTest.entities.Pessoa;
 import com.HenriqueKriguer.backEndTest.repositories.PessoaRepository;
+import com.HenriqueKriguer.backEndTest.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class PessoaService {
@@ -21,7 +22,7 @@ public class PessoaService {
 	
 	public Pessoa findById(Long id) {
 		Optional <Pessoa> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public Pessoa insert(Pessoa obj) {
