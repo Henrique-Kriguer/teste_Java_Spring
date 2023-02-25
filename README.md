@@ -42,7 +42,8 @@ o	Estado;
 
 # Tecnologias utilizadas
 ## Back end
-- Java
-- Spring Boot
+- Java SE 17.0.6.0 (LTS)
+- Spring Boot 3.0.2 (LTS)
 - JPA / Hibernate
 - Maven
+- Banco de dados H2
