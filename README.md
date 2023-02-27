@@ -1,44 +1,13 @@
 # Agenda de Pessoas e Endereços
 
 
-# Sobre o projeto
+## Sobre o projeto
 
-Usando Spring boot, foi criado uma API simples para gerenciar Pessoas. Esta API permite:  
-•	Criar uma pessoa;
+Usando Spring boot e JPA/HIBERNATE, foi criado uma API simples para gerenciar Pessoas. Esta API permite fazr todo processo CRUD com o banco de dados H2.
+Foi adotado o modelo de camadas, onde os dados armazenados no Banco de Dados são acessados via requisições via web ( J-SON).
+Temos duas classes de cadastro, uma para pessoas e outra para endereços, onde a aplicação permite criar uma coleção de endereços para uma mesma pessoa.
+Adicionalmente foi criado uma classe de enumeração, onde cada registro de endereço recebe um tipo, podendo assim identificar qual endereço será o principal e qual será o residencial, trabalho, outro...
 
-•	Editar uma pessoa;
-
-•	Consultar uma pessoa;
-
-•	Listar pessoas;
-
-•	Apagar pessoas;
-
-•	Criar endereço para pessoa;
-
-•	Listar endereços da pessoa;
-
-•	Informar qual o tipo de endereço (principal, residencia, trabalho ou outro) da pessoa.  
-
-O cadastro da Pessoa contém os seguintes campos: 
-
-•	Nome;
-
-•	Data de nascimento;
-
-E o cadastro do Endereço permite criar varios objetos para uma mesma pessoa. Cada endereço contém:
-
-•	Endereço;
-
-o	Logradouro;
-
-o	CEP;
-
-o	Número;
-
-o	Cidade;
-
-o	Estado;
 
 # Tecnologias utilizadas
 ## Back end
@@ -47,3 +16,7 @@ o	Estado;
 - JPA / Hibernate
 - Maven
 - Banco de dados H2
+
+![image](https://user-images.githubusercontent.com/109438759/221582515-e8698c04-d33e-43d7-83c4-37d9a5022c88.png)
+
+Fonte: Curso JAVA Completo 2023 - Prof. Nélio Alves. https://www.udemy.com/course/java-curso-completo/
